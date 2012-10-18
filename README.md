@@ -215,4 +215,11 @@ Testing
 * Use integration tests to execute the entire app.
 * Use one expectation per `it` block.
 * Use stubs and spies (not mocks) to isolate unit tests as much as possible.
+* Only `should` tests and mocks/expectations go in examples (i.e., it blocks)
+* Stubs go in `before` blocks, as they're part of the setup code rather than expectations.
+* Mocks (ex: `should_receive`) are testing that a particular behavior occurred. A guideline for determining whether something should be a mock or a stub is whether it would be weird to have it in its own example. If yes, then it should probably be a stub and go in the before block.
+* One context block + example(s) should exercise one code path. A different code path should be a different context.
+* When the examples are testing state (using `should` tests), the subject should be the method or object that's being inspected. This lets us use the nice rspec implicit subject syntax.
+* When the examples are testing behavior (using mocks), the subject should be the class or object where the method lives. This makes it clear what method is being tested.
+* Use `describe` to define a group of tests for a particular method or feature. Each nested context should exercise a particular code path.
 
