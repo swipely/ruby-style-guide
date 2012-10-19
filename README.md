@@ -198,8 +198,6 @@ Rails
 Testing
 -------
 
-* Avoid `its`, `specify`, `subject`, and other DSLs. Prefer explicitness and
-  consistency.
 * Disable real HTTP requests to external services.
 * Don't prefix `it` blocks with 'should'.
 * Prefix `context` blocks names with 'given' when receiving input. Prefix with
